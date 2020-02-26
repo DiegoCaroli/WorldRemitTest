@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		3258535A2406ACB60052E996 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325853592406ACB60052E996 /* AppDelegate.swift */; };
 		3258535C2406ACB60052E996 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258535B2406ACB60052E996 /* SceneDelegate.swift */; };
-		3258535E2406ACB60052E996 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258535D2406ACB60052E996 /* ViewController.swift */; };
 		325853612406ACB60052E996 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3258535F2406ACB60052E996 /* Main.storyboard */; };
 		325853632406ACB80052E996 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 325853622406ACB80052E996 /* Assets.xcassets */; };
 		325853662406ACB80052E996 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 325853642406ACB80052E996 /* LaunchScreen.storyboard */; };
 		325853712406ACB80052E996 /* WorldRemitTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325853702406ACB80052E996 /* WorldRemitTestTests.swift */; };
 		3258537C2406ACB80052E996 /* WorldRemitTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258537B2406ACB80052E996 /* WorldRemitTestUITests.swift */; };
+		3258538C2406AE9D0052E996 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258538B2406AE9D0052E996 /* UsersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,6 @@
 		325853562406ACB60052E996 /* WorldRemitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldRemitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		325853592406ACB60052E996 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3258535B2406ACB60052E996 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3258535D2406ACB60052E996 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		325853602406ACB60052E996 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		325853622406ACB80052E996 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		325853652406ACB80052E996 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		325853772406ACB80052E996 /* WorldRemitTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldRemitTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3258537B2406ACB80052E996 /* WorldRemitTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldRemitTestUITests.swift; sourceTree = "<group>"; };
 		3258537D2406ACB80052E996 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3258538B2406AE9D0052E996 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +101,9 @@
 			children = (
 				325853592406ACB60052E996 /* AppDelegate.swift */,
 				3258535B2406ACB60052E996 /* SceneDelegate.swift */,
-				3258535D2406ACB60052E996 /* ViewController.swift */,
-				3258535F2406ACB60052E996 /* Main.storyboard */,
-				325853622406ACB80052E996 /* Assets.xcassets */,
-				325853642406ACB80052E996 /* LaunchScreen.storyboard */,
-				325853672406ACB80052E996 /* Info.plist */,
+				3258538D2406AEA30052E996 /* Controllers */,
+				3258538A2406ACCD0052E996 /* Storyboards */,
+				325853892406ACC30052E996 /* Resources */,
 			);
 			path = WorldRemitTest;
 			sourceTree = "<group>";
@@ -126,6 +124,32 @@
 				3258537D2406ACB80052E996 /* Info.plist */,
 			);
 			path = WorldRemitTestUITests;
+			sourceTree = "<group>";
+		};
+		325853892406ACC30052E996 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				325853622406ACB80052E996 /* Assets.xcassets */,
+				325853672406ACB80052E996 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3258538A2406ACCD0052E996 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				3258535F2406ACB60052E996 /* Main.storyboard */,
+				325853642406ACB80052E996 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		3258538D2406AEA30052E996 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3258538B2406AE9D0052E996 /* UsersViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +283,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3258535E2406ACB60052E996 /* ViewController.swift in Sources */,
 				3258535A2406ACB60052E996 /* AppDelegate.swift in Sources */,
+				3258538C2406AE9D0052E996 /* UsersViewController.swift in Sources */,
 				3258535C2406ACB60052E996 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,7 +460,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88934FR2GK;
-				INFOPLIST_FILE = WorldRemitTest/Info.plist;
+				INFOPLIST_FILE = WorldRemitTest/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -444,7 +469,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.diego.WorldRemitTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -454,7 +479,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88934FR2GK;
-				INFOPLIST_FILE = WorldRemitTest/Info.plist;
+				INFOPLIST_FILE = WorldRemitTest/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -462,7 +488,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.diego.WorldRemitTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
