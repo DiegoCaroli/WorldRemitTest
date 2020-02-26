@@ -1,6 +1,6 @@
 //
 //  Data+JSONFile.swift
-//  RevolutTestTests
+//  WorldRemitTestTests
 //
 //  Created by Diego Caroli on 23/02/2020.
 //  Copyright © 2020 Diego Caroli. All rights reserved.

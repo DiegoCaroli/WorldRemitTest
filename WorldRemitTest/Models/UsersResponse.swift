@@ -16,4 +16,12 @@ struct User: Decodable {
     let reputation: Int
     let profileImage: URL
     let displayName: String
+
+    var isBlocked = false
+    var isFollowed = false
+
+    enum CodingKeys: String, CodingKey {
+        case reputation, profileImage, displayName
+    }
+
 }

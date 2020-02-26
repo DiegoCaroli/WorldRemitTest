@@ -11,19 +11,24 @@ import Foundation
 class UsersViewModel {
 
     private let networkService: NetworkingService
+    private(set) var users: [UserViewModel]
+    private lazy var decimalFormatter = DecimalFormatter()
+    var onUsersUpdate: (() -> ())?
+    var onErrorUpdate: ((Error) -> ())?
 
     init(networkService: NetworkingService) {
         self.networkService = networkService
-        fetchUsers()
+        self.users = []
     }
 
-    private func fetchUsers() {
+    func fetchUsers() {
         networkService.getUsers{ [weak self] result in
             switch result {
             case .success(let users):
-                print(users)
+                self?.users = users.items.map { UserViewModel(user: $0, decimalFormatter: self!.decimalFormatter)}
+                 self?.onUsersUpdate?()
             case .failure(let error):
-                print(error)
+                self?.onErrorUpdate?(error)
             }
         }
     }

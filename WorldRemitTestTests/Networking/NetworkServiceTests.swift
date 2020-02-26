@@ -1,6 +1,6 @@
 //
 //  NetworkServiceTests.swift
-//  WorldRemitTest
+//  WorldRemitTestTests
 //
 //  Created by Diego Caroli on 26/02/2020.
 //  Copyright © 2020 Diego Caroli. All rights reserved.
