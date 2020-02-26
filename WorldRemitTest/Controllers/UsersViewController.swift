@@ -12,6 +12,8 @@ class UsersViewController: UIViewController {
 
     @IBOutlet private weak var usersTableView: UITableView!
 
+    var viewModel = UsersViewModel(networkService: NetworkingService())
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -1,0 +1,53 @@
+{
+    "items": [
+        {
+            "badge_counts": {
+                "bronze": 8701,
+                "silver": 8365,
+                "gold": 743
+            },
+            "account_id": 11683,
+            "is_employee": false,
+            "last_modified_date": 1582668325,
+            "last_access_date": 1582723380,
+            "reputation_change_year": 11878,
+            "reputation_change_quarter": 11878,
+            "reputation_change_month": 5400,
+            "reputation_change_week": 850,
+            "reputation_change_day": 215,
+            "reputation": 1166000,
+            "creation_date": 1222430705,
+            "user_type": "registered",
+            "user_id": 22656,
+            "accept_rate": 86,
+            "location": "Reading, United Kingdom",
+            "website_url": "http://csharpindepth.com",
+            "link": "https://stackoverflow.com/users/22656/jon-skeet",
+        },
+        {
+            "badge_counts": {
+                "bronze": 3705,
+                "silver": 3147,
+                "gold": 366
+            },
+            "account_id": 4243,
+            "is_employee": false,
+            "last_modified_date": 1582708518,
+            "last_access_date": 1582723579,
+            "reputation_change_year": 13966,
+            "reputation_change_quarter": 13966,
+            "reputation_change_month": 6422,
+            "reputation_change_week": 980,
+            "reputation_change_day": 230,
+            "creation_date": 1221344553,
+            "user_type": "registered",
+            "user_id": 6309,
+            "accept_rate": 100,
+            "location": "France",
+            "website_url": "http://careers.stackoverflow.com/vonc",
+            "link": "https://stackoverflow.com/users/6309/vonc",
+            "profile_image": "https://www.gravatar.com/avatar/7aa22372b695ed2b26052c340f9097eb?s=128&d=identicon&r=PG",
+            "display_name": "VonC"
+        }
+    ]
+}
