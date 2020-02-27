@@ -20,12 +20,15 @@
 		3258539C2406BAD40052E996 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258539A2406BAD30052E996 /* NetworkingService.swift */; };
 		3258539D2406BAD40052E996 /* SessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258539B2406BAD30052E996 /* SessionProtocol.swift */; };
 		325853A02406D4D90052E996 /* UsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258539F2406D4D90052E996 /* UsersViewModel.swift */; };
-		325853A42406D81D0052E996 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325853A22406D81D0052E996 /* MockURLSession.swift */; };
 		325853A52406D81D0052E996 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325853A32406D81D0052E996 /* NetworkServiceTests.swift */; };
-		325853AD2406DB940052E996 /* Data+JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325853AB2406DA390052E996 /* Data+JSONFile.swift */; };
 		327C33202407C39A00346A53 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327C331F2407C39A00346A53 /* ImageDownloader.swift */; };
 		327C33222407C3BF00346A53 /* ImageDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327C33212407C3BF00346A53 /* ImageDownloaderTests.swift */; };
 		327C33242407C66600346A53 /* mockImage.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 327C33232407C66600346A53 /* mockImage.jpeg */; };
+		32F6B5702407F5EA007B0C43 /* Data+JSONFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325853AB2406DA390052E996 /* Data+JSONFile.swift */; };
+		32F6B5712407F5F0007B0C43 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325853A22406D81D0052E996 /* MockURLSession.swift */; };
+		32F6B5732407F696007B0C43 /* GET_Users_ValidResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A72406D8360052E996 /* GET_Users_ValidResponse.json */; };
+		32F6B5742407F6B8007B0C43 /* GET_Users_ValidResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A72406D8360052E996 /* GET_Users_ValidResponse.json */; };
+		32F6B57524080057007B0C43 /* GET_Users_MissingValuesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A82406D8360052E996 /* GET_Users_MissingValuesResponse.json */; };
 		F167BD6F240727B400E64545 /* GET_Users_ValidResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A72406D8360052E996 /* GET_Users_ValidResponse.json */; };
 		F167BD70240727B800E64545 /* GET_Users_MissingValuesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A82406D8360052E996 /* GET_Users_MissingValuesResponse.json */; };
 		F167BD722407309400E64545 /* XCUIElement+forceTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F167BD712407309400E64545 /* XCUIElement+forceTap.swift */; };
@@ -164,7 +167,6 @@
 		3258536F2406ACB80052E996 /* WorldRemitTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				325853AB2406DA390052E996 /* Data+JSONFile.swift */,
 				F179A3C2240717B900E6BE32 /* DecimalFormatterTests.swift */,
 				F179A3C8240722C200E6BE32 /* ViewModels */,
 				325853722406ACB80052E996 /* Info.plist */,
@@ -236,6 +238,8 @@
 				F179A3B72406FDF200E6BE32 /* UIViewController+Child.swift */,
 				325853962406B8550052E996 /* Reusable.swift */,
 				F179A3BF2407118900E6BE32 /* DecimalFormatter.swift */,
+				325853AB2406DA390052E996 /* Data+JSONFile.swift */,
+				325853A22406D81D0052E996 /* MockURLSession.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -263,7 +267,6 @@
 			isa = PBXGroup;
 			children = (
 				327C33212407C3BF00346A53 /* ImageDownloaderTests.swift */,
-				325853A22406D81D0052E996 /* MockURLSession.swift */,
 				325853A32406D81D0052E996 /* NetworkServiceTests.swift */,
 			);
 			path = Networking;
@@ -394,8 +397,10 @@
 			files = (
 				325853912406B2BA0052E996 /* UserCell.xib in Resources */,
 				325853662406ACB80052E996 /* LaunchScreen.storyboard in Resources */,
+				32F6B5742407F6B8007B0C43 /* GET_Users_ValidResponse.json in Resources */,
 				325853632406ACB80052E996 /* Assets.xcassets in Resources */,
 				325853612406ACB60052E996 /* Main.storyboard in Resources */,
+				32F6B57524080057007B0C43 /* GET_Users_MissingValuesResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F167BD762407480800E64545 /* README.md in Resources */,
+				32F6B5732407F696007B0C43 /* GET_Users_ValidResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +434,7 @@
 				327C33202407C39A00346A53 /* ImageDownloader.swift in Sources */,
 				325853902406B2BA0052E996 /* UserCell.swift in Sources */,
 				3258535A2406ACB60052E996 /* AppDelegate.swift in Sources */,
+				32F6B5712407F5F0007B0C43 /* MockURLSession.swift in Sources */,
 				3258538C2406AE9D0052E996 /* UsersViewController.swift in Sources */,
 				325853942406B4060052E996 /* UsersResponse.swift in Sources */,
 				F179A3C02407118900E6BE32 /* DecimalFormatter.swift in Sources */,
@@ -437,6 +444,7 @@
 				F179A3B92406FDF200E6BE32 /* UIViewController+Child.swift in Sources */,
 				F179A3BE2407049300E6BE32 /* UserViewModel.swift in Sources */,
 				325853A02406D4D90052E996 /* UsersViewModel.swift in Sources */,
+				32F6B5702407F5EA007B0C43 /* Data+JSONFile.swift in Sources */,
 				3258535C2406ACB60052E996 /* SceneDelegate.swift in Sources */,
 				F179A3BA2406FDF200E6BE32 /* Storyboarded.swift in Sources */,
 			);
@@ -448,8 +456,6 @@
 			files = (
 				F179A3C3240717B900E6BE32 /* DecimalFormatterTests.swift in Sources */,
 				F179A3C7240722B900E6BE32 /* UserViewModelTests.swift in Sources */,
-				325853AD2406DB940052E996 /* Data+JSONFile.swift in Sources */,
-				325853A42406D81D0052E996 /* MockURLSession.swift in Sources */,
 				325853A52406D81D0052E996 /* NetworkServiceTests.swift in Sources */,
 				F179A3C524071F1600E6BE32 /* UsersViewModelTests.swift in Sources */,
 				327C33222407C3BF00346A53 /* ImageDownloaderTests.swift in Sources */,

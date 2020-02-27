@@ -20,12 +20,12 @@ class UsersViewController: UIViewController {
         usersTableView.refreshControl = refreshControl
         return refreshControl
     }()
-
-    var viewModel = UsersViewModel(networkService: NetworkingService())
+    private var viewModel: UsersViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupNetworkingService()
         setupTableView()
         viewModel.fetchUsers()
         setupDataBinding()
@@ -34,6 +34,24 @@ class UsersViewController: UIViewController {
 }
 
 private extension UsersViewController {
+    func setupNetworkingService() {
+        if ProcessInfo.processInfo.arguments.contains("UI-TESTING") {
+            let mockURL = URL(string: "https://test.com/2.2/users?pagesize=20&order=desc&sort=reputation&site=stackoverflow")!
+            let jsonData = try! Data.fromJSON(fileName: "GET_Users_ValidResponse")
+            let urlResponse = HTTPURLResponse(url: mockURL,
+                                              statusCode: 200,
+                                              httpVersion: nil,
+                                              headerFields: nil)
+            let mockURLSession = MockURLSession(data: jsonData,
+                                                urlResponse: urlResponse,
+                                                error: nil)
+            let sut = NetworkingService(session: mockURLSession)
+            viewModel = UsersViewModel(networkService: sut)
+        } else {
+            viewModel = UsersViewModel(networkService: NetworkingService())
+        }
+    }
+
     func setupTableView() {
         usersTableView.dataSource = self
         usersTableView.delegate = self

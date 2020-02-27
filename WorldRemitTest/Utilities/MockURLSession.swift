@@ -6,8 +6,7 @@
 //  Copyright © 2020 Diego Caroli. All rights reserved.
 //
 
-import XCTest
-@testable import WorldRemitTest
+import Foundation
 
 class MockURLSession: SessionProtocol {
     private var url: URL?

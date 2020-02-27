@@ -17,6 +17,7 @@ class UsersViewControllerTests: XCTestCase {
 
         continueAfterFailure = false
         app = XCUIApplication()
+        app.launchArguments += ["UI-TESTING"]
     }
 
     override func tearDown() {
@@ -41,7 +42,7 @@ class UsersViewControllerTests: XCTestCase {
         XCTAssertTrue(firstCell.isHittable)
         firstCell.tap()
         firstCell.buttons["delete_button"].tap()
-        XCTAssertFalse(firstCell.isHittable)
+        XCTAssertTrue(app.isOverlayView)
     }
 
 }
@@ -51,7 +52,7 @@ private extension XCUIApplication {
         return otherElements["usersView"].exists
     }
 
-    var isErrorLoadingView: Bool {
-        return otherElements["errorLoadingView"].exists
+    var isOverlayView: Bool {
+        return otherElements["overlayView"].exists
     }
 }

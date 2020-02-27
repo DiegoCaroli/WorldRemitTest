@@ -25,6 +25,7 @@ class UserCell: UITableViewCell, Reusable {
         let view = UIView(frame: contentView.frame)
         view.autoresizingMask = [.flexibleWidth]
         view.backgroundColor = .lightGray
+        view.accessibilityIdentifier = "overlayView"
         view.alpha = 0.7
         return view
     }()
