@@ -28,14 +28,32 @@ class NetworkServiceTests: XCTestCase {
     }
 
     func test_Exchanges_UsesExpectedHost() {
+        let jsonData = try! Data.fromJSON(fileName: "GET_Users_ValidResponse")
+        let urlResponse = HTTPURLResponse(url: mockURL,
+                                          statusCode: 200,
+                                          httpVersion: nil,
+                                          headerFields: nil)
+        mockURLSession = MockURLSession(data: jsonData,
+                                        urlResponse: urlResponse,
+                                        error: nil)
         setupSession(mockURLSession)
+
         sut.getUsers() { _ in }
         XCTAssertEqual(mockURLSession.urlComponents?.host,
                        "api.stackexchange.com")
     }
     
     func test_Exchanges_UsesExpectedPath() {
+                let jsonData = try! Data.fromJSON(fileName: "GET_Users_ValidResponse")
+        let urlResponse = HTTPURLResponse(url: mockURL,
+                                          statusCode: 200,
+                                          httpVersion: nil,
+                                          headerFields: nil)
+        mockURLSession = MockURLSession(data: jsonData,
+                                        urlResponse: urlResponse,
+                                        error: nil)
         setupSession(mockURLSession)
+
         sut.getUsers() { _ in }
         XCTAssertEqual(mockURLSession.urlComponents?.path,
                        "/2.2/users")
@@ -55,8 +73,8 @@ class NetworkServiceTests: XCTestCase {
         let successfulExpectation = expectation(description: "Successful")
         sut.getUsers() { result in
             switch result {
-            case .success(let countries):
-                XCTAssertNotNil(countries)
+            case .success(let users):
+                XCTAssertNotNil(users)
                 successfulExpectation.fulfill()
             case .failure(_):
                 XCTFail()

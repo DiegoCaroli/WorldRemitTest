@@ -42,6 +42,7 @@ class UserCell: UITableViewCell, Reusable {
         isUserInteractionEnabled = true
         overlayView.removeFromSuperview()
         innerStackView.isHidden = true
+        profileImageView.image = UIImage(named: "placeholderProfile")
     }
 
     func configure(for viewModel: UserViewModel) {
@@ -57,6 +58,11 @@ class UserCell: UITableViewCell, Reusable {
         if viewModel.isBlocked {
             setupBlock()
         }
+
+        viewModel.fetchImage { [weak self] image in
+            self?.profileImageView.image = image
+        }
+
     }
 
     func expandCollapse() {

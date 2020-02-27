@@ -13,6 +13,7 @@ class UsersViewModel {
     private let networkService: NetworkingService
     private(set) var users: [UserViewModel]
     private lazy var decimalFormatter = DecimalFormatter()
+    private lazy var imageDownloader = ImageDownloader()
     var onUsersUpdate: (() -> ())?
     var onErrorUpdate: ((Error) -> ())?
 
@@ -25,8 +26,11 @@ class UsersViewModel {
         networkService.getUsers{ [weak self] result in
             switch result {
             case .success(let users):
-                self?.users = users.items.map { UserViewModel(user: $0, decimalFormatter: self!.decimalFormatter)}
-                 self?.onUsersUpdate?()
+                self?.users = users.items.compactMap { [weak self] user in
+                    guard let self = self else { return nil }
+                    return UserViewModel(user: user, decimalFormatter: self.decimalFormatter, imageDownloader: self.imageDownloader)
+                }
+                self?.onUsersUpdate?()
             case .failure(let error):
                 self?.onErrorUpdate?(error)
             }

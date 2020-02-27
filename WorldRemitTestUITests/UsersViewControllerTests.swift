@@ -39,8 +39,8 @@ class UsersViewControllerTests: XCTestCase {
         app.launch()
         let firstCell = XCUIApplication().tables.cells.firstMatch
         XCTAssertTrue(firstCell.isHittable)
-        firstCell.forceTapElement()
-        firstCell.buttons["delete_button"].forceTapElement()
+        firstCell.tap()
+        firstCell.buttons["delete_button"].tap()
         XCTAssertFalse(firstCell.isHittable)
     }
 

@@ -13,19 +13,22 @@ class UserViewModelTests: XCTestCase {
 
     var sut: UserViewModel!
     var mockDecimalFormatter: DecimalFormatter!
+    var mockImageDownloader: ImageDownloader!
 
     override func setUp() {
         super.setUp()
         mockDecimalFormatter = DecimalFormatter()
+        mockImageDownloader = ImageDownloader()
         let jsonData = try! Data.fromJSON(fileName: "GET_Users_ValidResponse")
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         let users = try! decoder.decode(Users.self, from: jsonData)
-        sut = UserViewModel(user: users.items[0], decimalFormatter: mockDecimalFormatter)
+        sut = UserViewModel(user: users.items[0], decimalFormatter: mockDecimalFormatter, imageDownloader: mockImageDownloader)
     }
 
     override func tearDown() {
         mockDecimalFormatter = nil
+        mockImageDownloader = nil
         sut = nil
 
         super.tearDown()
