@@ -40,7 +40,8 @@ class UserViewModelTests: XCTestCase {
     }
 
     func testImage() {
-         XCTAssertEqual(sut.imageURL, URL(string: "https://www.gravatar.com/avatar/6d8ebb117e8d83d74ea95fbdd0f87e13?s=128&d=identicon&r=PG)"))
+         XCTAssertEqual(sut.imageURL,
+                        URL(string: "https://www.gravatar.com/avatar/6d8ebb117e8d83d74ea95fbdd0f87e13?s=128&d=identicon&r=PG"))
      }
 
     func testIsBlocked() {
