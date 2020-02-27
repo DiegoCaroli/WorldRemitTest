@@ -32,12 +32,24 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Csc-9n-Dcu">
                                         <rect key="frame" x="70" y="0.0" width="218" height="48"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pl1-d1-AEF">
-                                                <rect key="frame" x="0.0" y="0.0" width="48" height="21.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yrk-mk-wZ1">
+                                                <rect key="frame" x="0.0" y="0.0" width="78" height="21.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pl1-d1-AEF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="48" height="21.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="follow" translatesAutoresizingMaskIntoConstraints="NO" id="GwF-y5-kCf">
+                                                        <rect key="frame" x="58" y="0.0" width="20" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="20" id="C8M-EX-gBp"/>
+                                                            <constraint firstAttribute="height" constant="20" id="Onu-EF-NcB"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reputation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5x-z8-iuN">
                                                 <rect key="frame" x="0.0" y="29.5" width="74.5" height="18.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -90,6 +102,7 @@
             <connections>
                 <outlet property="blockButton" destination="mdt-ub-M1T" id="JnV-tQ-k5c"/>
                 <outlet property="followButton" destination="ZCZ-4e-XCM" id="yeU-xB-Z7p"/>
+                <outlet property="followImageView" destination="GwF-y5-kCf" id="ZLo-ph-JGp"/>
                 <outlet property="innerStackView" destination="cT1-D4-DD0" id="1lN-xu-Uq4"/>
                 <outlet property="nameLabel" destination="Pl1-d1-AEF" id="V9h-nm-GYZ"/>
                 <outlet property="profileImageView" destination="jvh-BZ-0JN" id="17B-Pz-QWp"/>
@@ -99,6 +112,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="follow" width="980" height="896"/>
         <image name="placeholderProfile" width="512" height="512"/>
     </resources>
 </document>

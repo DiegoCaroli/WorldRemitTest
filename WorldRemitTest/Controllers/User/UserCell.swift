@@ -16,6 +16,7 @@ class UserCell: UITableViewCell, Reusable {
     @IBOutlet private weak var followButton: UIButton!
     @IBOutlet private weak var blockButton: UIButton!
     @IBOutlet private weak var innerStackView: UIStackView!
+    @IBOutlet private weak var followImageView: UIImageView!
 
     var didBlockTap: (() -> ())?
     var didFollowTap: (() -> ())?
@@ -33,6 +34,10 @@ class UserCell: UITableViewCell, Reusable {
 
         followButton.layer.cornerRadius = 7
         blockButton.layer.cornerRadius = 7
+
+        followImageView.image = followImageView.image?.withRenderingMode(.alwaysTemplate)
+        followImageView.tintColor = .blue
+        followImageView.isHidden = true
     }
 
     override func prepareForReuse() {
@@ -43,6 +48,7 @@ class UserCell: UITableViewCell, Reusable {
         overlayView.removeFromSuperview()
         innerStackView.isHidden = true
         profileImageView.image = UIImage(named: "placeholderProfile")
+        followImageView.isHidden = true
     }
 
     func configure(for viewModel: UserViewModel) {
@@ -76,6 +82,7 @@ class UserCell: UITableViewCell, Reusable {
 
     @IBAction private func followButtonTapped() {
         followButton.setTitle(followButton.titleLabel?.text == "Follow" ? "Unfollow" : "Follow", for: .normal)
+        followImageView.isHidden.toggle()
         didFollowTap?()
     }
 
