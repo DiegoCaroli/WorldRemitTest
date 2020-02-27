@@ -60,6 +60,7 @@ class UserCell: UITableViewCell, Reusable {
         }
 
         followButton.setTitle(viewModel.isFollowed ? "Unfollow" : "Follow", for: .normal)
+        followImageView.isHidden = viewModel.isFollowed ? false : true
 
         if viewModel.isBlocked {
             setupBlock()
