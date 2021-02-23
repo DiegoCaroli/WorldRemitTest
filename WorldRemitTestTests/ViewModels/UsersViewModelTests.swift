@@ -65,7 +65,7 @@ class UsersViewModelTests: XCTestCase {
 
         sut.fetchUsers()
         sut.onUsersUpdate = { [unowned self]  in
-            XCTAssertGreaterThan(self.sut.users.count, 0)
+            XCTAssertGreaterThan(self.sut.numberOfUsers, 0)
             usersExpectation.fulfill()
         }
 
@@ -83,6 +83,19 @@ class UsersViewModelTests: XCTestCase {
         }
 
         wait(for: [errorExpectation], timeout: 1)
+    }
+
+    func testUser() {
+        setupSutWithJsonValidAndFetch()
+        let usersExpectation = expectation(description: "Users Not Empty")
+
+        sut.fetchUsers()
+        sut.onUsersUpdate = { [unowned self] in
+            XCTAssertGreaterThan(self.sut.numberOfUsers, 0)
+            usersExpectation.fulfill()
+        }
+
+        wait(for: [usersExpectation], timeout: 1)
     }
 
 }
