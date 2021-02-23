@@ -11,11 +11,12 @@ import Foundation
 class UsersViewModel {
 
     private let networkService: NetworkingService
-    private(set) var users: [UserViewModel]
+    private var users: [User]
     private lazy var decimalFormatter = DecimalFormatter()
     private lazy var imageDownloader = ImageDownloader()
     var onUsersUpdate: (() -> ())?
     var onErrorUpdate: ((Error) -> ())?
+    var numberOfUsers: Int { users.count }
 
     init(networkService: NetworkingService) {
         self.networkService = networkService
@@ -26,15 +27,18 @@ class UsersViewModel {
         networkService.getUsers{ [weak self] result in
             switch result {
             case .success(let users):
-                self?.users = users.items.compactMap { [weak self] user in
-                    guard let self = self else { return nil }
-                    return UserViewModel(user: user, decimalFormatter: self.decimalFormatter, imageDownloader: self.imageDownloader)
-                }
+                self?.users = users.items
                 self?.onUsersUpdate?()
             case .failure(let error):
                 self?.onErrorUpdate?(error)
             }
         }
+    }
+
+    func userViewModel(at index: Int) -> UserViewModel {
+        UserViewModel(user: users[index],
+                      decimalFormatter: decimalFormatter,
+                      imageDownloader: imageDownloader)
     }
 
 }

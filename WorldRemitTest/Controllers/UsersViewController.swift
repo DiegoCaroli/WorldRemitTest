@@ -61,7 +61,7 @@ private extension UsersViewController {
 
         usersTableView.addSubview(refreshControl)
     }
-    
+
     func setupDataBinding() {
         let vc = ErrorLoadingViewController.instantiate()
         add(vc)
@@ -88,7 +88,7 @@ private extension UsersViewController {
 extension UsersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return viewModel.users.count
+        return viewModel.numberOfUsers
     }
 
     func tableView(_ tableView: UITableView,
@@ -99,7 +99,7 @@ extension UsersViewController: UITableViewDataSource {
                 fatalError("Expected UserCell")
         }
 
-        let viewModel = self.viewModel.users[indexPath.row]
+        let viewModel = self.viewModel.userViewModel(at: indexPath.row)
         cell.configure(for: viewModel)
 
         cell.didFollowTap = {
@@ -128,7 +128,7 @@ extension UsersViewController: UITableViewDelegate {
         guard let cell = tableView.cellForRow(at: indexPath) as? UserCell else { return }
 
         cell.expandCollapse()
-        let viewModel = self.viewModel.users[indexPath.row]
+        let viewModel = self.viewModel.userViewModel(at: indexPath.row)
         viewModel.isExpand.toggle()
         tableView.beginUpdates()
         tableView.endUpdates()
