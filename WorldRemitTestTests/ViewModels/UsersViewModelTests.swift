@@ -12,21 +12,18 @@ import XCTest
 class UsersViewModelTests: XCTestCase {
 
     var sut: UsersViewModel!
-    var networkingService: NetworkingService!
     var mockURLSession: MockURLSession!
-    var mockDecimalFormatter: DecimalFormatter!
+    var mockServices: Services!
 
     override func setUp() {
         super.setUp()
 
-        mockDecimalFormatter = DecimalFormatter()
     }
 
     override func tearDown() {
         sut = nil
-        networkingService = nil
         mockURLSession = nil
-        mockDecimalFormatter = nil
+        mockServices = nil
 
         super.tearDown()
     }
@@ -40,8 +37,10 @@ class UsersViewModelTests: XCTestCase {
         mockURLSession = MockURLSession(data: jsonData,
                                         urlResponse: urlResponse,
                                         error: nil)
-        networkingService = NetworkingService(session: mockURLSession)
-        sut = UsersViewModel(networkService: networkingService)
+        mockServices = Services(session: mockURLSession)
+        sut = UsersViewModel(usersService: mockServices.usersService,
+                             decimalFormatter: mockServices.decimalFormatter,
+                             imageDownloader: mockServices.imageDownloader)
     }
 
     func setupSutWithErrorAndFetch() {
@@ -55,8 +54,10 @@ class UsersViewModelTests: XCTestCase {
         mockURLSession = MockURLSession(data: Data(),
                                         urlResponse: response,
                                         error: error)
-        networkingService = NetworkingService(session: mockURLSession)
-        sut = UsersViewModel(networkService: networkingService)
+        mockServices = Services(session: mockURLSession)
+        sut = UsersViewModel(usersService: mockServices.usersService,
+                             decimalFormatter: mockServices.decimalFormatter,
+                             imageDownloader: mockServices.imageDownloader)
     }
 
     func testFetchUsers() {

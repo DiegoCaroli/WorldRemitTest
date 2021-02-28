@@ -38,7 +38,10 @@ class NetworkServiceTests: XCTestCase {
                                         error: nil)
         setupSession(mockURLSession)
 
-        sut.getUsers() { _ in }
+        sut.execute(Endpoint.users) { (result: (Result<Users, Error>)) in
+
+        }
+
         XCTAssertEqual(mockURLSession.urlComponents?.host,
                        "api.stackexchange.com")
     }
@@ -54,7 +57,9 @@ class NetworkServiceTests: XCTestCase {
                                         error: nil)
         setupSession(mockURLSession)
 
-        sut.getUsers() { _ in }
+        sut.execute(Endpoint.users) { (result: (Result<Users, Error>)) in
+
+        }
         XCTAssertEqual(mockURLSession.urlComponents?.path,
                        "/2.2/users")
     }
@@ -71,7 +76,7 @@ class NetworkServiceTests: XCTestCase {
         setupSession(mockURLSession)
         
         let successfulExpectation = expectation(description: "Successful")
-        sut.getUsers() { result in
+        sut.execute(Endpoint.users) { (result: (Result<Users, Error>)) in
             switch result {
             case .success(let users):
                 XCTAssertNotNil(users)
@@ -95,7 +100,7 @@ class NetworkServiceTests: XCTestCase {
         setupSession(mockURLSession)
         
         let errorExpectation = expectation(description: "Error")
-        sut.getUsers() { result in
+        sut.execute(Endpoint.users) { (result: (Result<Users, Error>)) in
             switch result {
             case .success(_):
                 XCTFail()
@@ -114,7 +119,7 @@ class NetworkServiceTests: XCTestCase {
         setupSession(mockURLSession)
         
         let errorExpectation = expectation(description: "Error")
-        sut.getUsers() { result in
+        sut.execute(Endpoint.users) { (result: (Result<Users, Error>)) in
             switch result {
             case .success(_):
                 XCTFail()
@@ -137,7 +142,7 @@ class NetworkServiceTests: XCTestCase {
         setupSession(mockURLSession)
         
         let errorExpectation = expectation(description: "Error")
-        sut.getUsers() { result in
+        sut.execute(Endpoint.users) { (result: (Result<Users, Error>)) in
             switch result {
             case .success(_):
                 XCTFail()
@@ -160,7 +165,7 @@ class NetworkServiceTests: XCTestCase {
         setupSession(mockURLSession)
         
         let errorExpectation = expectation(description: "Error")
-        sut.getUsers() { result in
+        sut.execute(Endpoint.users) { (result: (Result<Users, Error>)) in
             switch result {
             case .success(_):
                 XCTFail()

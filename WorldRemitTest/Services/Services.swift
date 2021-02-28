@@ -14,7 +14,7 @@ class Services {
     let decimalFormatter: DecimalFormatter
     let imageDownloader: ImageService
 
-    init() {
+    init(session: SessionProtocol = URLSession.shared) {
         if ProcessInfo.processInfo.arguments.contains("UI-TESTING") {
             let mockURL = URL(string: "https://test.com/2.2/users?pagesize=20&order=desc&sort=reputation&site=stackoverflow")!
             let jsonData = try! Data.fromJSON(fileName: "GET_Users_ValidResponse")
@@ -28,7 +28,7 @@ class Services {
             let sut = NetworkingService(session: mockURLSession)
             self.networkService = sut
         } else {
-            self.networkService = NetworkingService()
+            self.networkService = NetworkingService(session: session)
         }
         self.usersService = UsersService(network: networkService)
         self.decimalFormatter = DecimalFormatter()

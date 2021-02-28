@@ -18,7 +18,7 @@ class NetworkingService: Networking {
     private let session: SessionProtocol
     private var dataTask: URLSessionDataTask?
 
-    init(session: SessionProtocol = URLSession.shared) {
+    init(session: SessionProtocol) {
         self.session = session
     }
 
