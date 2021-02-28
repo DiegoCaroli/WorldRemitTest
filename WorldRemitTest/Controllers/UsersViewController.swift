@@ -21,6 +21,7 @@ class UsersViewController: UIViewController, Storyboarded {
         return refreshControl
     }()
     var viewModel: UsersViewModel!
+    weak var coordinator: MainCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,17 +51,16 @@ private extension UsersViewController {
     }
 
     func setupDataBinding() {
-        let vc = ErrorLoadingViewController.instantiate(from: .main)
-        add(vc)
+        coordinator?.addErrorLoading()
 
         viewModel.onUsersUpdate = { [unowned self] in
-            vc.remove()
+            coordinator?.removeErrorLoading()
             self.usersTableView.reloadData()
         }
 
-        viewModel.onErrorUpdate = { error in
+        viewModel.onErrorUpdate = { [weak self] error in
             DispatchQueue.main.async {
-                vc.setupError(error)
+                self?.coordinator?.showError(error)
             }
         }
     }

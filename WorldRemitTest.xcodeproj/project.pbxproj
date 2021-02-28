@@ -33,6 +33,8 @@
 		F1530A4225EBD5DE00253103 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A4125EBD5DE00253103 /* UsersService.swift */; };
 		F1530A4725EBFB4100253103 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A4625EBFB4100253103 /* Endpoint.swift */; };
 		F1530A5625EC13EA00253103 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A5525EC13EA00253103 /* Services.swift */; };
+		F1530A5B25EC20EC00253103 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A5A25EC20EC00253103 /* Coordinator.swift */; };
+		F1530A6125EC212500253103 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A6025EC212500253103 /* MainCoordinator.swift */; };
 		F167BD6F240727B400E64545 /* GET_Users_ValidResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A72406D8360052E996 /* GET_Users_ValidResponse.json */; };
 		F167BD70240727B800E64545 /* GET_Users_MissingValuesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A82406D8360052E996 /* GET_Users_MissingValuesResponse.json */; };
 		F167BD722407309400E64545 /* XCUIElement+forceTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F167BD712407309400E64545 /* XCUIElement+forceTap.swift */; };
@@ -97,6 +99,8 @@
 		F1530A4125EBD5DE00253103 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		F1530A4625EBFB4100253103 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		F1530A5525EC13EA00253103 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		F1530A5A25EC20EC00253103 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		F1530A6025EC212500253103 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		F167BD712407309400E64545 /* XCUIElement+forceTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+forceTap.swift"; sourceTree = "<group>"; };
 		F167BD732407310D00E64545 /* UsersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewControllerTests.swift; sourceTree = "<group>"; };
 		F167BD752407480800E64545 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 			children = (
 				325853592406ACB60052E996 /* AppDelegate.swift */,
 				3258535B2406ACB60052E996 /* SceneDelegate.swift */,
+				F1530A5F25EC211800253103 /* Coordinatos */,
 				F1530A5125EC116B00253103 /* Services */,
 				3258538D2406AEA30052E996 /* Controllers */,
 				325853952406B59D0052E996 /* Models */,
@@ -243,13 +248,14 @@
 		325853982406B8610052E996 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F1530A5A25EC20EC00253103 /* Coordinator.swift */,
+				325853AB2406DA390052E996 /* Data+JSONFile.swift */,
+				F179A3BF2407118900E6BE32 /* DecimalFormatter.swift */,
+				325853A22406D81D0052E996 /* MockURLSession.swift */,
+				325853962406B8550052E996 /* Reusable.swift */,
 				F179A3B82406FDF200E6BE32 /* Storyboarded.swift */,
 				F1530A3625EBD1B400253103 /* StoryboardName.swift */,
 				F179A3B72406FDF200E6BE32 /* UIViewController+Child.swift */,
-				325853962406B8550052E996 /* Reusable.swift */,
-				F179A3BF2407118900E6BE32 /* DecimalFormatter.swift */,
-				325853AB2406DA390052E996 /* Data+JSONFile.swift */,
-				325853A22406D81D0052E996 /* MockURLSession.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -300,6 +306,14 @@
 				F1530A5525EC13EA00253103 /* Services.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		F1530A5F25EC211800253103 /* Coordinatos */ = {
+			isa = PBXGroup;
+			children = (
+				F1530A6025EC212500253103 /* MainCoordinator.swift */,
+			);
+			path = Coordinatos;
 			sourceTree = "<group>";
 		};
 		F179A3C8240722C200E6BE32 /* ViewModels */ = {
@@ -456,7 +470,9 @@
 				3258535A2406ACB60052E996 /* AppDelegate.swift in Sources */,
 				32F6B5712407F5F0007B0C43 /* MockURLSession.swift in Sources */,
 				3258538C2406AE9D0052E996 /* UsersViewController.swift in Sources */,
+				F1530A5B25EC20EC00253103 /* Coordinator.swift in Sources */,
 				325853942406B4060052E996 /* UsersResponse.swift in Sources */,
+				F1530A6125EC212500253103 /* MainCoordinator.swift in Sources */,
 				F179A3C02407118900E6BE32 /* DecimalFormatter.swift in Sources */,
 				3258539C2406BAD40052E996 /* NetworkingService.swift in Sources */,
 				3258539D2406BAD40052E996 /* SessionProtocol.swift in Sources */,
