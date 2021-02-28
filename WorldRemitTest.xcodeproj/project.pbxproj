@@ -15,7 +15,7 @@
 		3258538C2406AE9D0052E996 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258538B2406AE9D0052E996 /* UsersViewController.swift */; };
 		325853902406B2BA0052E996 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258538E2406B2BA0052E996 /* UserCell.swift */; };
 		325853912406B2BA0052E996 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3258538F2406B2BA0052E996 /* UserCell.xib */; };
-		325853942406B4060052E996 /* UsersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325853932406B4060052E996 /* UsersResponse.swift */; };
+		325853942406B4060052E996 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325853932406B4060052E996 /* Users.swift */; };
 		325853972406B8550052E996 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325853962406B8550052E996 /* Reusable.swift */; };
 		3258539C2406BAD40052E996 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258539A2406BAD30052E996 /* NetworkingService.swift */; };
 		3258539D2406BAD40052E996 /* SessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3258539B2406BAD30052E996 /* SessionProtocol.swift */; };
@@ -82,7 +82,7 @@
 		3258538B2406AE9D0052E996 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		3258538E2406B2BA0052E996 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		3258538F2406B2BA0052E996 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
-		325853932406B4060052E996 /* UsersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersResponse.swift; sourceTree = "<group>"; };
+		325853932406B4060052E996 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		325853962406B8550052E996 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		3258539A2406BAD30052E996 /* NetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		3258539B2406BAD30052E996 /* SessionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionProtocol.swift; sourceTree = "<group>"; };
@@ -240,7 +240,7 @@
 		325853952406B59D0052E996 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				325853932406B4060052E996 /* UsersResponse.swift */,
+				325853932406B4060052E996 /* Users.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -471,7 +471,7 @@
 				32F6B5712407F5F0007B0C43 /* MockURLSession.swift in Sources */,
 				3258538C2406AE9D0052E996 /* UsersViewController.swift in Sources */,
 				F1530A5B25EC20EC00253103 /* Coordinator.swift in Sources */,
-				325853942406B4060052E996 /* UsersResponse.swift in Sources */,
+				325853942406B4060052E996 /* Users.swift in Sources */,
 				F1530A6125EC212500253103 /* MainCoordinator.swift in Sources */,
 				F179A3C02407118900E6BE32 /* DecimalFormatter.swift in Sources */,
 				3258539C2406BAD40052E996 /* NetworkingService.swift in Sources */,

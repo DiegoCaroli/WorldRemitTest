@@ -12,7 +12,7 @@ class Services {
     let usersService: UsersProviding
     private let networkService: Networking
     let decimalFormatter: DecimalFormatter
-    let imageDownloader: ImageService
+    let imageCache: ImageService
 
     init(session: SessionProtocol = URLSession.shared) {
         if ProcessInfo.processInfo.arguments.contains("UI-TESTING") {
@@ -32,6 +32,6 @@ class Services {
         }
         self.usersService = UsersService(network: networkService)
         self.decimalFormatter = DecimalFormatter()
-        self.imageDownloader = ImageDownloader()
+        self.imageCache = ImageDownloader()
     }
 }

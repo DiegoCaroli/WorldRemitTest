@@ -28,7 +28,7 @@ final class MainCoordinator: Coordinator {
         let viewController = UsersViewController.instantiate(from: .main)
         let viewModel = UsersViewModel(usersService: services.usersService,
                                        decimalFormatter: services.decimalFormatter,
-                                       imageDownloader: services.imageDownloader)
+                                       imageDownloader: services.imageCache)
 
         viewController.viewModel = viewModel
         viewController.coordinator = self

@@ -40,7 +40,7 @@ class UsersViewModelTests: XCTestCase {
         mockServices = Services(session: mockURLSession)
         sut = UsersViewModel(usersService: mockServices.usersService,
                              decimalFormatter: mockServices.decimalFormatter,
-                             imageDownloader: mockServices.imageDownloader)
+                             imageDownloader: mockServices.imageCache)
     }
 
     func setupSutWithErrorAndFetch() {
@@ -57,7 +57,7 @@ class UsersViewModelTests: XCTestCase {
         mockServices = Services(session: mockURLSession)
         sut = UsersViewModel(usersService: mockServices.usersService,
                              decimalFormatter: mockServices.decimalFormatter,
-                             imageDownloader: mockServices.imageDownloader)
+                             imageDownloader: mockServices.imageCache)
     }
 
     func testFetchUsers() {
