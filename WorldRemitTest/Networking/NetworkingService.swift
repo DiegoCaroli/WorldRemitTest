@@ -8,13 +8,12 @@
 
 import Foundation
 
-protocol UsersProviding {
-    func getUsers(
-        completionHandler: @escaping (Result<Users, Error>) -> Void
-    )
+protocol Networking {
+    func execute<T: Decodable>(_ requestProvider: RequestProviding,
+                               completion: @escaping (Result<T, Error>) -> Void)
 }
 
-class NetworkingService: UsersProviding {
+class NetworkingService: Networking {
 
     private let session: SessionProtocol
     private var dataTask: URLSessionDataTask?
@@ -23,76 +22,42 @@ class NetworkingService: UsersProviding {
         self.session = session
     }
 
-    func getUsers(
-        completionHandler: @escaping (Result<Users, Error>) -> Void
-    ) {
-        fetch(with: urlComponents, completionHandler: completionHandler)
-    }
-
-    private func fetch<T: Decodable>(
-        with components: URLComponents,
-        completionHandler: @escaping (Result<T, Error>) -> Void
-    ) {
+    func execute<T: Decodable>(_ requestProvider: RequestProviding,
+                               completion: @escaping (Result<T, Error>) -> Void) {
         dataTask?.cancel()
-        guard let url = components.url else { return }
+        let urlRequest = requestProvider.urlRequest
 
-        dataTask = session.dataTask(with: url) { data, response, error in
+        dataTask = session.dataTask(with: urlRequest) { data, response, error in
 
-                if let error = error {
-                    guard (error as NSError).code != NSURLErrorCancelled else {
-                        return
-                    }
-                    completionHandler(.failure(error))
+            if let error = error {
+                guard (error as NSError).code != NSURLErrorCancelled else {
                     return
                 }
+                completion(.failure(error))
+                return
+            }
 
-                guard
-                    let data = data,
-                    let response = response as? HTTPURLResponse,
-                    200 ..< 299 ~= response.statusCode else {
-                        let error = NSError(domain: "Server error", code: 0, userInfo: nil)
-                        completionHandler(.failure(error))
-                        return
-                }
+            guard
+                let data = data,
+                let response = response as? HTTPURLResponse,
+                200 ..< 299 ~= response.statusCode else {
+                let error = NSError(domain: "Server error", code: 0, userInfo: nil)
+                completion(.failure(error))
+                return
+            }
 
-                do {
-                    let decoder = JSONDecoder()
-                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
 
-                    let result = try decoder.decode(T.self, from: data)
-                    DispatchQueue.main.async { completionHandler(.success(result)) }
-                } catch {
-                    completionHandler(.failure(error))
-                }
+                let result = try decoder.decode(T.self, from: data)
+                DispatchQueue.main.async { completion(.success(result)) }
+            } catch {
+                completion(.failure(error))
+            }
         }
 
         dataTask?.resume()
-    }
-
-}
-
-// MARK: - Stackexchange API
-private extension NetworkingService {
-    struct StackexchangeAPI {
-        static let scheme = "https"
-        static let host = "api.stackexchange.com"
-        static let path = "/2.2/users"
-    }
-
-    var urlComponents: URLComponents {
-        var components = URLComponents()
-        components.scheme = StackexchangeAPI.scheme
-        components.host = StackexchangeAPI.host
-        components.path = StackexchangeAPI.path
-
-        components.queryItems = [
-            URLQueryItem(name: "pagesize", value: "20"),
-            URLQueryItem(name: "order", value: "desc"),
-            URLQueryItem(name: "sort", value: "reputation"),
-            URLQueryItem(name: "site", value: "stackoverflow")
-        ]
-
-        return components
     }
 
 }

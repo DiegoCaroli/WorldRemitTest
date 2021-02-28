@@ -24,21 +24,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let viewController = UsersViewController.instantiate(from: .main)
         let navigationController = UINavigationController(rootViewController: viewController)
 
-        if ProcessInfo.processInfo.arguments.contains("UI-TESTING") {
-            let mockURL = URL(string: "https://test.com/2.2/users?pagesize=20&order=desc&sort=reputation&site=stackoverflow")!
-            let jsonData = try! Data.fromJSON(fileName: "GET_Users_ValidResponse")
-            let urlResponse = HTTPURLResponse(url: mockURL,
-                                              statusCode: 200,
-                                              httpVersion: nil,
-                                              headerFields: nil)
-            let mockURLSession = MockURLSession(data: jsonData,
-                                                urlResponse: urlResponse,
-                                                error: nil)
-            let sut = NetworkingService(session: mockURLSession)
-            viewController.viewModel = UsersViewModel(networkService: sut)
-        } else {
-            viewController.viewModel = UsersViewModel(networkService: NetworkingService())
-        }
+//        if ProcessInfo.processInfo.arguments.contains("UI-TESTING") {
+//            let mockURL = URL(string: "https://test.com/2.2/users?pagesize=20&order=desc&sort=reputation&site=stackoverflow")!
+//            let jsonData = try! Data.fromJSON(fileName: "GET_Users_ValidResponse")
+//            let urlResponse = HTTPURLResponse(url: mockURL,
+//                                              statusCode: 200,
+//                                              httpVersion: nil,
+//                                              headerFields: nil)
+//            let mockURLSession = MockURLSession(data: jsonData,
+//                                                urlResponse: urlResponse,
+//                                                error: nil)
+//            let sut = NetworkingService(session: mockURLSession)
+//            viewController.viewModel = UsersViewModel(networkService: sut)
+//        } else {
+        viewController.viewModel = UsersViewModel(usersService: UsersService(network: NetworkingService()))
+//        }
 
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

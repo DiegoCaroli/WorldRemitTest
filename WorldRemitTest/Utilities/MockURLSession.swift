@@ -33,6 +33,16 @@ class MockURLSession: SessionProtocol {
         dataTask.completionHandler = completionHandler
         return dataTask
     }
+
+    func dataTask(
+        with request: URLRequest,
+        completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void
+    ) -> URLSessionDataTask {
+        self.url = request.url
+        dataTask.completionHandler = completionHandler
+        return dataTask
+    }
+
 }
 
 class MockTask: URLSessionDataTask {

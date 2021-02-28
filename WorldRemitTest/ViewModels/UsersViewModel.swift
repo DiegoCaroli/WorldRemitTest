@@ -10,7 +10,7 @@ import Foundation
 
 class UsersViewModel {
 
-    private let networkService: NetworkingService
+    private let usersService: UsersProviding
     private var users: [User]
     private lazy var decimalFormatter = DecimalFormatter()
     private lazy var imageDownloader = ImageDownloader()
@@ -18,13 +18,13 @@ class UsersViewModel {
     var onErrorUpdate: ((Error) -> ())?
     var numberOfUsers: Int { users.count }
 
-    init(networkService: NetworkingService) {
-        self.networkService = networkService
+    init(usersService: UsersProviding) {
+        self.usersService = usersService
         self.users = []
     }
 
     func fetchUsers() {
-        networkService.getUsers{ [weak self] result in
+        usersService.getUsers{ [weak self] result in
             switch result {
             case .success(let users):
                 self?.users = users.items
