@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G2Q-ri-vln">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Users-->
         <scene sceneID="Zss-1A-QFd">
             <objects>
-                <viewController id="FoA-xA-OZq" customClass="UsersViewController" customModule="WorldRemitTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UsersViewController" id="FoA-xA-OZq" customClass="UsersViewController" customModule="WorldRemitTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dk1-ft-UqA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AUr-1z-LAv">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="mM7-jv-aMR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration" identifier="usersView"/>
                         <constraints>
                             <constraint firstItem="AUr-1z-LAv" firstAttribute="leading" secondItem="mM7-jv-aMR" secondAttribute="leading" id="BuH-L8-Eyb"/>
@@ -29,7 +31,6 @@
                             <constraint firstAttribute="bottom" secondItem="AUr-1z-LAv" secondAttribute="bottom" id="UnM-BS-LF7"/>
                             <constraint firstItem="AUr-1z-LAv" firstAttribute="top" secondItem="dk1-ft-UqA" secondAttribute="top" id="aOp-0h-K4c"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="mM7-jv-aMR"/>
                     </view>
                     <navigationItem key="navigationItem" title="Users" id="cnG-mJ-VSO"/>
                     <connections>
@@ -54,7 +55,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oops!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cvu-fR-emX">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bca-GB-7Q3">
@@ -69,7 +70,8 @@
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="iJ5-Q4-MgZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Oj0-aN-vGi" firstAttribute="centerX" secondItem="lHu-ki-d3n" secondAttribute="centerX" id="ETq-Xe-g2Y"/>
                             <constraint firstItem="yp5-Po-rP9" firstAttribute="leading" secondItem="iJ5-Q4-MgZ" secondAttribute="leading" constant="30" id="bK9-PW-SFm"/>
@@ -77,7 +79,6 @@
                             <constraint firstItem="yp5-Po-rP9" firstAttribute="centerY" secondItem="lHu-ki-d3n" secondAttribute="centerY" id="oxa-kk-2qu"/>
                             <constraint firstItem="Oj0-aN-vGi" firstAttribute="centerY" secondItem="lHu-ki-d3n" secondAttribute="centerY" id="zip-iG-hH3"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="iJ5-Q4-MgZ"/>
                     </view>
                     <connections>
                         <outlet property="errorLabel" destination="bca-GB-7Q3" id="UzD-fM-qc1"/>
@@ -89,23 +90,13 @@
             </objects>
             <point key="canvasLocation" x="1300" y="157"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="N6J-DZ-bBN">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G2Q-ri-vln" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="C77-ig-Sut">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="FoA-xA-OZq" kind="relationship" relationship="rootViewController" id="soB-xD-cFa"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ckc-8T-230" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-420.28985507246381" y="153.34821428571428"/>
-        </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

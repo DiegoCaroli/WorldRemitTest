@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UsersViewController: UIViewController {
+class UsersViewController: UIViewController, Storyboarded {
 
     @IBOutlet private weak var usersTableView: UITableView!
 
@@ -20,13 +20,13 @@ class UsersViewController: UIViewController {
         usersTableView.refreshControl = refreshControl
         return refreshControl
     }()
-    private var viewModel: UsersViewModel!
+    var viewModel: UsersViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupNetworkingService()
         setupTableView()
+        configureNavigationBar()
         viewModel.fetchUsers()
         setupDataBinding()
     }
@@ -34,24 +34,6 @@ class UsersViewController: UIViewController {
 }
 
 private extension UsersViewController {
-    func setupNetworkingService() {
-        if ProcessInfo.processInfo.arguments.contains("UI-TESTING") {
-            let mockURL = URL(string: "https://test.com/2.2/users?pagesize=20&order=desc&sort=reputation&site=stackoverflow")!
-            let jsonData = try! Data.fromJSON(fileName: "GET_Users_ValidResponse")
-            let urlResponse = HTTPURLResponse(url: mockURL,
-                                              statusCode: 200,
-                                              httpVersion: nil,
-                                              headerFields: nil)
-            let mockURLSession = MockURLSession(data: jsonData,
-                                                urlResponse: urlResponse,
-                                                error: nil)
-            let sut = NetworkingService(session: mockURLSession)
-            viewModel = UsersViewModel(networkService: sut)
-        } else {
-            viewModel = UsersViewModel(networkService: NetworkingService())
-        }
-    }
-
     func setupTableView() {
         usersTableView.dataSource = self
         usersTableView.delegate = self
@@ -60,6 +42,11 @@ private extension UsersViewController {
                                 forCellReuseIdentifier: UserCell.reuseIdentifier)
 
         usersTableView.addSubview(refreshControl)
+    }
+
+    func configureNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .automatic
     }
 
     func setupDataBinding() {
