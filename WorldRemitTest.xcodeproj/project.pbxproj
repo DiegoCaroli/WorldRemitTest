@@ -32,6 +32,7 @@
 		F1530A3725EBD1B400253103 /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A3625EBD1B400253103 /* StoryboardName.swift */; };
 		F1530A4225EBD5DE00253103 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A4125EBD5DE00253103 /* UsersService.swift */; };
 		F1530A4725EBFB4100253103 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A4625EBFB4100253103 /* Endpoint.swift */; };
+		F1530A5625EC13EA00253103 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A5525EC13EA00253103 /* Services.swift */; };
 		F167BD6F240727B400E64545 /* GET_Users_ValidResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A72406D8360052E996 /* GET_Users_ValidResponse.json */; };
 		F167BD70240727B800E64545 /* GET_Users_MissingValuesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A82406D8360052E996 /* GET_Users_MissingValuesResponse.json */; };
 		F167BD722407309400E64545 /* XCUIElement+forceTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F167BD712407309400E64545 /* XCUIElement+forceTap.swift */; };
@@ -95,6 +96,7 @@
 		F1530A3625EBD1B400253103 /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
 		F1530A4125EBD5DE00253103 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
 		F1530A4625EBFB4100253103 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		F1530A5525EC13EA00253103 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		F167BD712407309400E64545 /* XCUIElement+forceTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+forceTap.swift"; sourceTree = "<group>"; };
 		F167BD732407310D00E64545 /* UsersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewControllerTests.swift; sourceTree = "<group>"; };
 		F167BD752407480800E64545 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			children = (
 				325853592406ACB60052E996 /* AppDelegate.swift */,
 				3258535B2406ACB60052E996 /* SceneDelegate.swift */,
+				F1530A5125EC116B00253103 /* Services */,
 				3258538D2406AEA30052E996 /* Controllers */,
 				325853952406B59D0052E996 /* Models */,
 				325853992406BAD30052E996 /* Networking */,
@@ -254,7 +257,6 @@
 		325853992406BAD30052E996 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				F1530A4125EBD5DE00253103 /* UsersService.swift */,
 				3258539A2406BAD30052E996 /* NetworkingService.swift */,
 				3258539B2406BAD30052E996 /* SessionProtocol.swift */,
 				F1530A4625EBFB4100253103 /* Endpoint.swift */,
@@ -289,6 +291,15 @@
 				325853A82406D8360052E996 /* GET_Users_MissingValuesResponse.json */,
 			);
 			path = "Mock Data";
+			sourceTree = "<group>";
+		};
+		F1530A5125EC116B00253103 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F1530A4125EBD5DE00253103 /* UsersService.swift */,
+				F1530A5525EC13EA00253103 /* Services.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		F179A3C8240722C200E6BE32 /* ViewModels */ = {
@@ -449,6 +460,7 @@
 				F179A3C02407118900E6BE32 /* DecimalFormatter.swift in Sources */,
 				3258539C2406BAD40052E996 /* NetworkingService.swift in Sources */,
 				3258539D2406BAD40052E996 /* SessionProtocol.swift in Sources */,
+				F1530A5625EC13EA00253103 /* Services.swift in Sources */,
 				F179A3B62406FD9400E6BE32 /* ErrorViewController.swift in Sources */,
 				F179A3B92406FDF200E6BE32 /* UIViewController+Child.swift in Sources */,
 				F1530A4225EBD5DE00253103 /* UsersService.swift in Sources */,

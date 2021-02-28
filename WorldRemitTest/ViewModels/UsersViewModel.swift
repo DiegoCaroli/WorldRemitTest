@@ -12,14 +12,18 @@ class UsersViewModel {
 
     private let usersService: UsersProviding
     private var users: [User]
-    private lazy var decimalFormatter = DecimalFormatter()
-    private lazy var imageDownloader = ImageDownloader()
+    private let decimalFormatter: DecimalFormatter
+    private let imageDownloader: ImageService
     var onUsersUpdate: (() -> ())?
     var onErrorUpdate: ((Error) -> ())?
     var numberOfUsers: Int { users.count }
 
-    init(usersService: UsersProviding) {
+    init(usersService: UsersProviding,
+         decimalFormatter: DecimalFormatter,
+         imageDownloader: ImageService) {
         self.usersService = usersService
+        self.decimalFormatter = decimalFormatter
+        self.imageDownloader = imageDownloader
         self.users = []
     }
 

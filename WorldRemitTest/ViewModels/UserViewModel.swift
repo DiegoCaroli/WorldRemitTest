@@ -12,7 +12,7 @@ class UserViewModel {
 
     private var user: User
     private let decimalFormatter: DecimalFormatter
-    private let imageDownloader: ImageDownloader
+    private let imageDownloader: ImageService
 
     var isExpand: Bool
     var name: String { user.displayName }
@@ -34,7 +34,7 @@ class UserViewModel {
 
     init(user: User,
         decimalFormatter: DecimalFormatter,
-        imageDownloader: ImageDownloader,
+        imageDownloader: ImageService,
         isExpand: Bool = false) {
         self.user = user
         self.decimalFormatter = decimalFormatter

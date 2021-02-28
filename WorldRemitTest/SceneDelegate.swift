@@ -37,7 +37,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //            let sut = NetworkingService(session: mockURLSession)
 //            viewController.viewModel = UsersViewModel(networkService: sut)
 //        } else {
-        viewController.viewModel = UsersViewModel(usersService: UsersService(network: NetworkingService()))
+        let services = Services()
+        viewController.viewModel = UsersViewModel(usersService: services.usersService,
+                                                  decimalFormatter: services.decimalFormatter,
+                                                  imageDownloader: services.imageDownloader)
 //        }
 
         window?.rootViewController = navigationController

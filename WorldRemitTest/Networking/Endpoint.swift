@@ -29,7 +29,7 @@ extension Endpoint: RequestProviding {
     }
 }
 
-// MARK: - Stackexchange API
+// MARK:- Stackexchange API
 private extension Endpoint {
     struct StackexchangeAPI {
         static let scheme = "https"
