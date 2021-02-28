@@ -41,14 +41,21 @@ final class MainCoordinator: Coordinator {
     }
 
     func removeErrorLoading() {
-        guard let vc = navigationController.viewControllers.last?.children.first as? ErrorLoadingViewController else { return }
+        guard let vc = navigationController
+                .viewControllers
+                .last?
+                .children
+                .first as? ErrorLoadingViewController else { return }
         vc.remove()
     }
 
     func showError(_ error: Error) {
-        guard let vc = navigationController.viewControllers.last?.children.first as? ErrorLoadingViewController else { return }
+        guard let vc = navigationController
+                .viewControllers
+                .last?
+                .children
+                .first as? ErrorLoadingViewController else { return }
         vc.setupError(error)
     }
 
 }
-
