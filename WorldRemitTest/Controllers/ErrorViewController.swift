@@ -9,7 +9,6 @@
 import UIKit
 
 class ErrorLoadingViewController: UIViewController, Storyboarded {
-    static var storyboardName = "Main"
 
     @IBOutlet private weak var errorLabel: UILabel!
     @IBOutlet private weak var spinner: UIActivityIndicatorView!

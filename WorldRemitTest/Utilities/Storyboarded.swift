@@ -8,16 +8,15 @@
 
 import UIKit
 
-protocol Storyboarded: class {
-    static var storyboardName: String { get }
-    static func instantiate() -> Self
+protocol Storyboarded: AnyObject {
+    static func instantiate(from storyboardName: StoryboardName) -> Self
 }
 
 extension Storyboarded where Self: UIViewController {
-    static func instantiate() -> Self {
+    static func instantiate(from storyboardName: StoryboardName) -> Self {
         let className = String(describing: self)
         let bundle = Bundle(for: AppDelegate.self)
-        let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
+        let storyboard = UIStoryboard(name: storyboardName.rawValue, bundle: bundle)
 
         return storyboard.instantiateViewController(withIdentifier: className) as! Self
     }

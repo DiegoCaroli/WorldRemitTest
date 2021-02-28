@@ -29,6 +29,7 @@
 		32F6B5732407F696007B0C43 /* GET_Users_ValidResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A72406D8360052E996 /* GET_Users_ValidResponse.json */; };
 		32F6B5742407F6B8007B0C43 /* GET_Users_ValidResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A72406D8360052E996 /* GET_Users_ValidResponse.json */; };
 		32F6B57524080057007B0C43 /* GET_Users_MissingValuesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A82406D8360052E996 /* GET_Users_MissingValuesResponse.json */; };
+		F1530A3725EBD1B400253103 /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A3625EBD1B400253103 /* StoryboardName.swift */; };
 		F167BD6F240727B400E64545 /* GET_Users_ValidResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A72406D8360052E996 /* GET_Users_ValidResponse.json */; };
 		F167BD70240727B800E64545 /* GET_Users_MissingValuesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A82406D8360052E996 /* GET_Users_MissingValuesResponse.json */; };
 		F167BD722407309400E64545 /* XCUIElement+forceTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F167BD712407309400E64545 /* XCUIElement+forceTap.swift */; };
@@ -89,6 +90,7 @@
 		327C331F2407C39A00346A53 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		327C33212407C3BF00346A53 /* ImageDownloaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloaderTests.swift; sourceTree = "<group>"; };
 		327C33232407C66600346A53 /* mockImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mockImage.jpeg; sourceTree = "<group>"; };
+		F1530A3625EBD1B400253103 /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
 		F167BD712407309400E64545 /* XCUIElement+forceTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+forceTap.swift"; sourceTree = "<group>"; };
 		F167BD732407310D00E64545 /* UsersViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewControllerTests.swift; sourceTree = "<group>"; };
 		F167BD752407480800E64545 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				F179A3B82406FDF200E6BE32 /* Storyboarded.swift */,
+				F1530A3625EBD1B400253103 /* StoryboardName.swift */,
 				F179A3B72406FDF200E6BE32 /* UIViewController+Child.swift */,
 				325853962406B8550052E996 /* Reusable.swift */,
 				F179A3BF2407118900E6BE32 /* DecimalFormatter.swift */,
@@ -445,6 +448,7 @@
 				F179A3BE2407049300E6BE32 /* UserViewModel.swift in Sources */,
 				325853A02406D4D90052E996 /* UsersViewModel.swift in Sources */,
 				32F6B5702407F5EA007B0C43 /* Data+JSONFile.swift in Sources */,
+				F1530A3725EBD1B400253103 /* StoryboardName.swift in Sources */,
 				3258535C2406ACB60052E996 /* SceneDelegate.swift in Sources */,
 				F179A3BA2406FDF200E6BE32 /* Storyboarded.swift in Sources */,
 			);

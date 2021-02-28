@@ -63,7 +63,7 @@ private extension UsersViewController {
     }
 
     func setupDataBinding() {
-        let vc = ErrorLoadingViewController.instantiate()
+        let vc = ErrorLoadingViewController.instantiate(from: .main)
         add(vc)
 
         viewModel.onUsersUpdate = { [unowned self] in
