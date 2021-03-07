@@ -16,13 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        self.window = window
 
-        let appDependencyContainer = AppDependencyContainer()
-        coordinator = MainCoordinator(window: window, appDependencyContainer: appDependencyContainer)
-        coordinator?.start()
-        window.makeKeyAndVisible()
+        let isUnitTesting = ProcessInfo.processInfo.environment["IS_UNIT_TESTING"] == "YES"
+
+        if !isUnitTesting {
+            let window = UIWindow(frame: UIScreen.main.bounds)
+            self.window = window
+
+            let appDependencyContainer = AppDependencyContainer()
+            coordinator = MainCoordinator(window: window, appDependencyContainer: appDependencyContainer)
+            coordinator?.start()
+            window.makeKeyAndVisible()
+        }
 
         return true
     }

@@ -12,8 +12,8 @@ import XCTest
 class UsersViewModelTests: XCTestCase {
 
     var sut: UsersViewModel!
-    var mockURLSession: MockURLSession!
-    var mockAppDependencyContainer: AppDependencyContainer!
+    var usersRepository: FakeUsersRepository!
+    var userViewModelFactory: FakeUserViewModelFactory!
 
     override func setUp() {
         super.setUp()
@@ -22,79 +22,50 @@ class UsersViewModelTests: XCTestCase {
 
     override func tearDown() {
         sut = nil
-        mockURLSession = nil
-        mockAppDependencyContainer = nil
+        usersRepository = nil
+        userViewModelFactory = nil
 
         super.tearDown()
     }
 
-    func setupSutWithJsonValidAndFetch() {
-        let jsonData = try! Data.fromJSON(fileName: "GET_Users_ValidResponse")
-        let urlResponse = HTTPURLResponse(url: URL(string: "https://test.com/2.2/users?pagesize=20&order=desc&sort=reputation&site=stackoverflow")!,
-                                          statusCode: 200,
-                                          httpVersion: nil,
-                                          headerFields: nil)
-        mockURLSession = MockURLSession(data: jsonData,
-                                        urlResponse: urlResponse,
-                                        error: nil)
-        mockAppDependencyContainer = AppDependencyContainer(session: mockURLSession)
-        sut = UsersViewModel(usersRepository: mockAppDependencyContainer.usersRepository,
-                             userViewModelFactory: mockAppDependencyContainer)
-    }
-
-    func setupSutWithErrorAndFetch() {
-        let response = HTTPURLResponse(url: URL(string: "https://test.com/2.2/users?pagesize=20&order=desc&sort=reputation&site=stackoverflow")!,
-                                       statusCode: 500,
-                                       httpVersion: nil,
-                                       headerFields: nil)
-        let error = NSError(domain: "SomeError",
-                            code: 1234,
-                            userInfo: nil)
-        mockURLSession = MockURLSession(data: Data(),
-                                        urlResponse: response,
-                                        error: error)
-        mockAppDependencyContainer = AppDependencyContainer(session: mockURLSession)
-        sut = UsersViewModel(usersRepository: mockAppDependencyContainer.usersRepository,
-                             userViewModelFactory: mockAppDependencyContainer)
-    }
-
     func testFetchUsers() {
-        setupSutWithJsonValidAndFetch()
+        usersRepository = FakeUsersRepository()
+        userViewModelFactory = FakeUserViewModelFactory()
+
+        sut = UsersViewModel(usersRepository: usersRepository,
+                             userViewModelFactory: userViewModelFactory)
+        
         let usersExpectation = expectation(description: "Users Not Empty")
 
-        sut.fetchUsers()
-        sut.onUsersUpdate = { [unowned self]  in
+        sut.onUsersUpdate = { [unowned self] in
             XCTAssertGreaterThan(self.sut.numberOfUsers, 0)
             usersExpectation.fulfill()
         }
+        sut.fetchUsers()
 
         wait(for: [usersExpectation], timeout: 1)
     }
 
     func testFetchErrorUsers() {
-        setupSutWithErrorAndFetch()
+        let error = NSError(domain: "SomeError",
+                            code: 1234,
+                            userInfo: nil)
+
+        usersRepository = FakeUsersRepository(error: error)
+        userViewModelFactory = FakeUserViewModelFactory()
+
+        sut = UsersViewModel(usersRepository: usersRepository,
+                             userViewModelFactory: userViewModelFactory)
+
         let errorExpectation = expectation(description: "Error")
 
-        sut.fetchUsers()
-        sut.onErrorUpdate = {error in
+        sut.onErrorUpdate = { error in
             XCTAssertNotNil(error)
             errorExpectation.fulfill()
         }
+        sut.fetchUsers()
 
         wait(for: [errorExpectation], timeout: 1)
-    }
-
-    func testUser() {
-        setupSutWithJsonValidAndFetch()
-        let usersExpectation = expectation(description: "Users Not Empty")
-
-        sut.fetchUsers()
-        sut.onUsersUpdate = { [unowned self] in
-            XCTAssertGreaterThan(self.sut.numberOfUsers, 0)
-            usersExpectation.fulfill()
-        }
-
-        wait(for: [usersExpectation], timeout: 1)
     }
 
 }

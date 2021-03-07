@@ -17,13 +17,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        let window = UIWindow(windowScene: windowScene)
-        self.window = window
+        let isUnitTesting = ProcessInfo.processInfo.environment["IS_UNIT_TESTING"] == "YES"
 
-        let appDependencyContainer = AppDependencyContainer()
-        coordinator = MainCoordinator(window: window, appDependencyContainer: appDependencyContainer)
-        coordinator?.start()
-        window.makeKeyAndVisible()
+        if !isUnitTesting {
+            let window = UIWindow(windowScene: windowScene)
+            self.window = window
+
+            let appDependencyContainer = AppDependencyContainer()
+            coordinator = MainCoordinator(window: window, appDependencyContainer: appDependencyContainer)
+            coordinator?.start()
+            window.makeKeyAndVisible()
+        }
     }
 
 }
