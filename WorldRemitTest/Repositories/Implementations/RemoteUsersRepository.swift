@@ -8,11 +8,7 @@
 
 import Foundation
 
-protocol UsersProviding {
-    func getUsers(completion: @escaping (Result<Users, Error>) -> Void)
-}
-
-class UsersService: UsersProviding {
+class RemoteUsersRepository: UsersRepository {
     private let network: Networking
 
     init(network: Networking) {

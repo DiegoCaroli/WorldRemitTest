@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
 
-        let services = Services()
-        coordinator = MainCoordinator(window: window, services: services)
+        let appDependencyContainer = AppDependencyContainer()
+        coordinator = MainCoordinator(window: window, appDependencyContainer: appDependencyContainer)
         coordinator?.start()
         window.makeKeyAndVisible()
 

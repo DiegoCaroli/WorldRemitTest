@@ -13,22 +13,22 @@ final class MainCoordinator: Coordinator {
     internal var childCoordinators: [Coordinator]
 
     private let window: UIWindow
-    private let services: Services
+    private let appDependencyContainer: AppDependencyContainer
 
     init(window: UIWindow,
-         services: Services) {
+         appDependencyContainer: AppDependencyContainer) {
         self.navigationController = UINavigationController()
         self.childCoordinators = []
         self.window = window
-        self.services = services
+        self.appDependencyContainer = appDependencyContainer
         self.window.rootViewController = self.navigationController
     }
 
     func start() {
         let viewController = UsersViewController.instantiate(from: .main)
-        let viewModel = UsersViewModel(usersService: services.usersService,
-                                       decimalFormatter: services.decimalFormatter,
-                                       imageDownloader: services.imageCache)
+        let viewModel = UsersViewModel(usersRepository: appDependencyContainer.usersRepository,
+                                       decimalFormatter: appDependencyContainer.decimalFormatter,
+                                       imageDownloader: appDependencyContainer.imageCache)
 
         viewController.viewModel = viewModel
         viewController.coordinator = self

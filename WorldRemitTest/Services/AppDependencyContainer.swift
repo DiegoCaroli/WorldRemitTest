@@ -1,5 +1,5 @@
 //
-//  Services.swift
+//  AppDependencyContainer.swift
 //  WorldRemitTest
 //
 //  Created by Diego Caroli on 28/02/2021.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Services {
-    let usersService: UsersProviding
+class AppDependencyContainer {
+    let usersRepository: UsersRepository
     private let networkService: Networking
     let decimalFormatter: DecimalFormatter
     let imageCache: ImageService
@@ -30,7 +30,7 @@ class Services {
         } else {
             self.networkService = NetworkingService(session: session)
         }
-        self.usersService = UsersService(network: networkService)
+        self.usersRepository = RemoteUsersRepository(network: networkService)
         self.decimalFormatter = DecimalFormatter()
         self.imageCache = ImageDownloader()
     }

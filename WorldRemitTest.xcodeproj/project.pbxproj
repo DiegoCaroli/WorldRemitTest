@@ -29,10 +29,11 @@
 		32F6B5732407F696007B0C43 /* GET_Users_ValidResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A72406D8360052E996 /* GET_Users_ValidResponse.json */; };
 		32F6B5742407F6B8007B0C43 /* GET_Users_ValidResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A72406D8360052E996 /* GET_Users_ValidResponse.json */; };
 		32F6B57524080057007B0C43 /* GET_Users_MissingValuesResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A82406D8360052E996 /* GET_Users_MissingValuesResponse.json */; };
+		F11C98B425F4365B00B40EE0 /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11C98B325F4365B00B40EE0 /* UsersRepository.swift */; };
 		F1530A3725EBD1B400253103 /* StoryboardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A3625EBD1B400253103 /* StoryboardName.swift */; };
-		F1530A4225EBD5DE00253103 /* UsersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A4125EBD5DE00253103 /* UsersService.swift */; };
+		F1530A4225EBD5DE00253103 /* RemoteUsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A4125EBD5DE00253103 /* RemoteUsersRepository.swift */; };
 		F1530A4725EBFB4100253103 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A4625EBFB4100253103 /* Endpoint.swift */; };
-		F1530A5625EC13EA00253103 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A5525EC13EA00253103 /* Services.swift */; };
+		F1530A5625EC13EA00253103 /* AppDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A5525EC13EA00253103 /* AppDependencyContainer.swift */; };
 		F1530A5B25EC20EC00253103 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A5A25EC20EC00253103 /* Coordinator.swift */; };
 		F1530A6125EC212500253103 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1530A6025EC212500253103 /* MainCoordinator.swift */; };
 		F167BD6F240727B400E64545 /* GET_Users_ValidResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 325853A72406D8360052E996 /* GET_Users_ValidResponse.json */; };
@@ -95,10 +96,11 @@
 		327C331F2407C39A00346A53 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		327C33212407C3BF00346A53 /* ImageDownloaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloaderTests.swift; sourceTree = "<group>"; };
 		327C33232407C66600346A53 /* mockImage.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mockImage.jpeg; sourceTree = "<group>"; };
+		F11C98B325F4365B00B40EE0 /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
 		F1530A3625EBD1B400253103 /* StoryboardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardName.swift; sourceTree = "<group>"; };
-		F1530A4125EBD5DE00253103 /* UsersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersService.swift; sourceTree = "<group>"; };
+		F1530A4125EBD5DE00253103 /* RemoteUsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUsersRepository.swift; sourceTree = "<group>"; };
 		F1530A4625EBFB4100253103 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		F1530A5525EC13EA00253103 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		F1530A5525EC13EA00253103 /* AppDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencyContainer.swift; sourceTree = "<group>"; };
 		F1530A5A25EC20EC00253103 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F1530A6025EC212500253103 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		F167BD712407309400E64545 /* XCUIElement+forceTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+forceTap.swift"; sourceTree = "<group>"; };
@@ -165,14 +167,14 @@
 			children = (
 				325853592406ACB60052E996 /* AppDelegate.swift */,
 				3258535B2406ACB60052E996 /* SceneDelegate.swift */,
-				F1530A5F25EC211800253103 /* Coordinatos */,
-				F1530A5125EC116B00253103 /* Services */,
 				3258538D2406AEA30052E996 /* Controllers */,
+				F1530A5F25EC211800253103 /* Coordinators */,
+				F11C98AE25F4360100B40EE0 /* Core */,
 				325853952406B59D0052E996 /* Models */,
-				325853992406BAD30052E996 /* Networking */,
+				F11C98B225F4363A00B40EE0 /* Repositories */,
 				325853892406ACC30052E996 /* Resources */,
+				F1530A5125EC116B00253103 /* Services */,
 				3258538A2406ACCD0052E996 /* Storyboards */,
-				325853982406B8610052E996 /* Utilities */,
 				3258539E2406D4C50052E996 /* ViewModels */,
 			);
 			path = WorldRemitTest;
@@ -250,7 +252,6 @@
 			children = (
 				F1530A5A25EC20EC00253103 /* Coordinator.swift */,
 				325853AB2406DA390052E996 /* Data+JSONFile.swift */,
-				F179A3BF2407118900E6BE32 /* DecimalFormatter.swift */,
 				325853A22406D81D0052E996 /* MockURLSession.swift */,
 				325853962406B8550052E996 /* Reusable.swift */,
 				F179A3B82406FDF200E6BE32 /* Storyboarded.swift */,
@@ -299,21 +300,47 @@
 			path = "Mock Data";
 			sourceTree = "<group>";
 		};
+		F11C98AE25F4360100B40EE0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				325853982406B8610052E996 /* Utilities */,
+				325853992406BAD30052E996 /* Networking */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F11C98B225F4363A00B40EE0 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				F11C98B325F4365B00B40EE0 /* UsersRepository.swift */,
+				F11C98CC25F438C900B40EE0 /* Implementations */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		F11C98CC25F438C900B40EE0 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				F1530A4125EBD5DE00253103 /* RemoteUsersRepository.swift */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
 		F1530A5125EC116B00253103 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				F1530A4125EBD5DE00253103 /* UsersService.swift */,
-				F1530A5525EC13EA00253103 /* Services.swift */,
+				F1530A5525EC13EA00253103 /* AppDependencyContainer.swift */,
+				F179A3BF2407118900E6BE32 /* DecimalFormatter.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		F1530A5F25EC211800253103 /* Coordinatos */ = {
+		F1530A5F25EC211800253103 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
 				F1530A6025EC212500253103 /* MainCoordinator.swift */,
 			);
-			path = Coordinatos;
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		F179A3C8240722C200E6BE32 /* ViewModels */ = {
@@ -388,7 +415,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Diego Caroli";
 				TargetAttributes = {
 					325853552406ACB60052E996 = {
@@ -474,12 +501,13 @@
 				325853942406B4060052E996 /* Users.swift in Sources */,
 				F1530A6125EC212500253103 /* MainCoordinator.swift in Sources */,
 				F179A3C02407118900E6BE32 /* DecimalFormatter.swift in Sources */,
+				F11C98B425F4365B00B40EE0 /* UsersRepository.swift in Sources */,
 				3258539C2406BAD40052E996 /* NetworkingService.swift in Sources */,
 				3258539D2406BAD40052E996 /* SessionProtocol.swift in Sources */,
-				F1530A5625EC13EA00253103 /* Services.swift in Sources */,
+				F1530A5625EC13EA00253103 /* AppDependencyContainer.swift in Sources */,
 				F179A3B62406FD9400E6BE32 /* ErrorViewController.swift in Sources */,
 				F179A3B92406FDF200E6BE32 /* UIViewController+Child.swift in Sources */,
-				F1530A4225EBD5DE00253103 /* UsersService.swift in Sources */,
+				F1530A4225EBD5DE00253103 /* RemoteUsersRepository.swift in Sources */,
 				F179A3BE2407049300E6BE32 /* UserViewModel.swift in Sources */,
 				F1530A4725EBFB4100253103 /* Endpoint.swift in Sources */,
 				325853A02406D4D90052E996 /* UsersViewModel.swift in Sources */,
@@ -572,6 +600,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -632,6 +661,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

@@ -10,7 +10,7 @@ import Foundation
 
 class UsersViewModel {
 
-    private let usersService: UsersProviding
+    private let usersRepository: UsersRepository
     private(set) var users: [UserViewModel]
     private let decimalFormatter: DecimalFormatter
     private let imageDownloader: ImageService
@@ -18,17 +18,17 @@ class UsersViewModel {
     var onErrorUpdate: ((Error) -> ())?
     var numberOfUsers: Int { users.count }
 
-    init(usersService: UsersProviding,
+    init(usersRepository: UsersRepository,
          decimalFormatter: DecimalFormatter,
          imageDownloader: ImageService) {
-        self.usersService = usersService
+        self.usersRepository = usersRepository
         self.decimalFormatter = decimalFormatter
         self.imageDownloader = imageDownloader
         self.users = []
     }
 
     func fetchUsers() {
-        usersService.getUsers{ [weak self] result in
+        usersRepository.getUsers{ [weak self] result in
             switch result {
                 case .success(let users):
                     self?.users = users.items.compactMap { [weak self] user in

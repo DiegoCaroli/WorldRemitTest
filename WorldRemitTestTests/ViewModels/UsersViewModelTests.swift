@@ -13,7 +13,7 @@ class UsersViewModelTests: XCTestCase {
 
     var sut: UsersViewModel!
     var mockURLSession: MockURLSession!
-    var mockServices: Services!
+    var mockServices: AppDependencyContainer!
 
     override func setUp() {
         super.setUp()
@@ -37,8 +37,8 @@ class UsersViewModelTests: XCTestCase {
         mockURLSession = MockURLSession(data: jsonData,
                                         urlResponse: urlResponse,
                                         error: nil)
-        mockServices = Services(session: mockURLSession)
-        sut = UsersViewModel(usersService: mockServices.usersService,
+        mockServices = AppDependencyContainer(session: mockURLSession)
+        sut = UsersViewModel(usersRepository: mockServices.usersService,
                              decimalFormatter: mockServices.decimalFormatter,
                              imageDownloader: mockServices.imageCache)
     }
@@ -54,8 +54,8 @@ class UsersViewModelTests: XCTestCase {
         mockURLSession = MockURLSession(data: Data(),
                                         urlResponse: response,
                                         error: error)
-        mockServices = Services(session: mockURLSession)
-        sut = UsersViewModel(usersService: mockServices.usersService,
+        mockServices = AppDependencyContainer(session: mockURLSession)
+        sut = UsersViewModel(usersRepository: mockServices.usersService,
                              decimalFormatter: mockServices.decimalFormatter,
                              imageDownloader: mockServices.imageCache)
     }
