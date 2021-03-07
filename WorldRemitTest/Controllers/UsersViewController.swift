@@ -20,6 +20,7 @@ class UsersViewController: UIViewController, Storyboarded {
         usersTableView.refreshControl = refreshControl
         return refreshControl
     }()
+    
     var viewModel: UsersViewModel!
     weak var coordinator: MainCoordinator?
 

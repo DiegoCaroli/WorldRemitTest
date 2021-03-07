@@ -26,9 +26,7 @@ final class MainCoordinator: Coordinator {
 
     func start() {
         let viewController = UsersViewController.instantiate(from: .main)
-        let viewModel = UsersViewModel(usersRepository: appDependencyContainer.usersRepository,
-                                       decimalFormatter: appDependencyContainer.decimalFormatter,
-                                       imageDownloader: appDependencyContainer.imageCache)
+        let viewModel = appDependencyContainer.makeUsersViewModel()
 
         viewController.viewModel = viewModel
         viewController.coordinator = self

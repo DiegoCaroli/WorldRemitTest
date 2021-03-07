@@ -12,7 +12,7 @@ class UserViewModel {
 
     private var user: User
     private let decimalFormatter: DecimalFormatter
-    private let imageDownloader: ImageService
+    private let imageCache: ImageService
 
     var isExpand: Bool
     var name: String { user.displayName }
@@ -34,16 +34,16 @@ class UserViewModel {
 
     init(user: User,
         decimalFormatter: DecimalFormatter,
-        imageDownloader: ImageService,
+        imageCache: ImageService,
         isExpand: Bool = false) {
         self.user = user
         self.decimalFormatter = decimalFormatter
         self.isExpand = isExpand
-        self.imageDownloader = imageDownloader
+        self.imageCache = imageCache
     }
 
     func fetchImage(completionHandler: @escaping (UIImage?) -> Void)  {
-        imageDownloader.downloadImage(fromURL: imageURL) { completionHandler($0) }
+        imageCache.downloadImage(fromURL: imageURL) { completionHandler($0) }
     }
 
 }

@@ -9,12 +9,12 @@
 import Foundation
 
 class AppDependencyContainer {
-    let usersRepository: UsersRepository
-    private let networkService: Networking
-    let decimalFormatter: DecimalFormatter
-    let imageCache: ImageService
+    lazy var usersRepository: UsersRepository = {
+        let usersRepository = RemoteUsersRepository(network: networkService)
+        return usersRepository
+    }()
 
-    init(session: SessionProtocol = URLSession.shared) {
+    lazy var networkService: Networking = {
         if ProcessInfo.processInfo.arguments.contains("UI-TESTING") {
             let mockURL = URL(string: "https://test.com/2.2/users?pagesize=20&order=desc&sort=reputation&site=stackoverflow")!
             let jsonData = try! Data.fromJSON(fileName: "GET_Users_ValidResponse")
@@ -26,12 +26,36 @@ class AppDependencyContainer {
                                                 urlResponse: urlResponse,
                                                 error: nil)
             let sut = NetworkingService(session: mockURLSession)
-            self.networkService = sut
+            return sut
         } else {
-            self.networkService = NetworkingService(session: session)
+            let networkService = NetworkingService(session: session)
+            return networkService
         }
-        self.usersRepository = RemoteUsersRepository(network: networkService)
-        self.decimalFormatter = DecimalFormatter()
-        self.imageCache = ImageDownloader()
+    }()
+
+    lazy var decimalFormatter: DecimalFormatter = DecimalFormatter()
+    lazy var imageCache: ImageService = ImageDownloader()
+
+    private let session: SessionProtocol
+
+    init(session: SessionProtocol = URLSession.shared) {
+        self.session = session
+    }
+}
+
+// MARK:- UsersViewModelFactory
+extension AppDependencyContainer: UsersViewModelFactory {
+    func makeUsersViewModel() -> UsersViewModel {
+        return UsersViewModel(usersRepository: usersRepository,
+                              userViewModelFactory: self)
+    }
+}
+
+// MARK:- UsersViewModelFactory
+extension AppDependencyContainer: UserViewModelFactory {
+    func makeUserViewModel(for user: User) -> UserViewModel {
+        return UserViewModel(user: user,
+                             decimalFormatter: decimalFormatter,
+                             imageCache: imageCache)
     }
 }

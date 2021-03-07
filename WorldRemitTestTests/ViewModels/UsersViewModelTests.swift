@@ -13,7 +13,7 @@ class UsersViewModelTests: XCTestCase {
 
     var sut: UsersViewModel!
     var mockURLSession: MockURLSession!
-    var mockServices: AppDependencyContainer!
+    var mockAppDependencyContainer: AppDependencyContainer!
 
     override func setUp() {
         super.setUp()
@@ -23,7 +23,7 @@ class UsersViewModelTests: XCTestCase {
     override func tearDown() {
         sut = nil
         mockURLSession = nil
-        mockServices = nil
+        mockAppDependencyContainer = nil
 
         super.tearDown()
     }
@@ -37,10 +37,9 @@ class UsersViewModelTests: XCTestCase {
         mockURLSession = MockURLSession(data: jsonData,
                                         urlResponse: urlResponse,
                                         error: nil)
-        mockServices = AppDependencyContainer(session: mockURLSession)
-        sut = UsersViewModel(usersRepository: mockServices.usersService,
-                             decimalFormatter: mockServices.decimalFormatter,
-                             imageDownloader: mockServices.imageCache)
+        mockAppDependencyContainer = AppDependencyContainer(session: mockURLSession)
+        sut = UsersViewModel(usersRepository: mockAppDependencyContainer.usersRepository,
+                             userViewModelFactory: mockAppDependencyContainer)
     }
 
     func setupSutWithErrorAndFetch() {
@@ -54,10 +53,9 @@ class UsersViewModelTests: XCTestCase {
         mockURLSession = MockURLSession(data: Data(),
                                         urlResponse: response,
                                         error: error)
-        mockServices = AppDependencyContainer(session: mockURLSession)
-        sut = UsersViewModel(usersRepository: mockServices.usersService,
-                             decimalFormatter: mockServices.decimalFormatter,
-                             imageDownloader: mockServices.imageCache)
+        mockAppDependencyContainer = AppDependencyContainer(session: mockURLSession)
+        sut = UsersViewModel(usersRepository: mockAppDependencyContainer.usersRepository,
+                             userViewModelFactory: mockAppDependencyContainer)
     }
 
     func testFetchUsers() {

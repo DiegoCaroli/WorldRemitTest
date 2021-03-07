@@ -49,6 +49,8 @@
 		F179A3C3240717B900E6BE32 /* DecimalFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F179A3C2240717B900E6BE32 /* DecimalFormatterTests.swift */; };
 		F179A3C524071F1600E6BE32 /* UsersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F179A3C424071F1500E6BE32 /* UsersViewModelTests.swift */; };
 		F179A3C7240722B900E6BE32 /* UserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F179A3C6240722B900E6BE32 /* UserViewModelTests.swift */; };
+		F1AE9BEA25F50B730029CC73 /* UsersViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE9BE925F50B730029CC73 /* UsersViewModelFactory.swift */; };
+		F1AE9BEF25F50B860029CC73 /* UserViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AE9BEE25F50B860029CC73 /* UserViewModelFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,8 @@
 		F179A3C2240717B900E6BE32 /* DecimalFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatterTests.swift; sourceTree = "<group>"; };
 		F179A3C424071F1500E6BE32 /* UsersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModelTests.swift; sourceTree = "<group>"; };
 		F179A3C6240722B900E6BE32 /* UserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTests.swift; sourceTree = "<group>"; };
+		F1AE9BE925F50B730029CC73 /* UsersViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewModelFactory.swift; sourceTree = "<group>"; };
+		F1AE9BEE25F50B860029CC73 /* UserViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +335,7 @@
 			children = (
 				F1530A5525EC13EA00253103 /* AppDependencyContainer.swift */,
 				F179A3BF2407118900E6BE32 /* DecimalFormatter.swift */,
+				F1AE9BE825F50B620029CC73 /* Protocols */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -350,6 +355,15 @@
 				F179A3C6240722B900E6BE32 /* UserViewModelTests.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F1AE9BE825F50B620029CC73 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F1AE9BE925F50B730029CC73 /* UsersViewModelFactory.swift */,
+				F1AE9BEE25F50B860029CC73 /* UserViewModelFactory.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -493,6 +507,7 @@
 			files = (
 				325853972406B8550052E996 /* Reusable.swift in Sources */,
 				327C33202407C39A00346A53 /* ImageDownloader.swift in Sources */,
+				F1AE9BEA25F50B730029CC73 /* UsersViewModelFactory.swift in Sources */,
 				325853902406B2BA0052E996 /* UserCell.swift in Sources */,
 				3258535A2406ACB60052E996 /* AppDelegate.swift in Sources */,
 				32F6B5712407F5F0007B0C43 /* MockURLSession.swift in Sources */,
@@ -500,6 +515,7 @@
 				F1530A5B25EC20EC00253103 /* Coordinator.swift in Sources */,
 				325853942406B4060052E996 /* Users.swift in Sources */,
 				F1530A6125EC212500253103 /* MainCoordinator.swift in Sources */,
+				F1AE9BEF25F50B860029CC73 /* UserViewModelFactory.swift in Sources */,
 				F179A3C02407118900E6BE32 /* DecimalFormatter.swift in Sources */,
 				F11C98B425F4365B00B40EE0 /* UsersRepository.swift in Sources */,
 				3258539C2406BAD40052E996 /* NetworkingService.swift in Sources */,
